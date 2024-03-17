@@ -1,0 +1,181 @@
+<!-- <html>
+
+<head>
+    <style>
+        form {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        form input {
+            flex-basis: 2rem;
+        }
+
+        form button {
+
+            background-color: grey;
+            color: white;
+        }
+
+        form button:disabled:hover {
+            background-color: yellow;
+            cursor: not-allowed;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Login Form</p>
+    <form name="login">
+        <input type="text" name="userName" oninput="checkDisabled()">
+        <input type="password" name="password" oninput="checkDisabled()">
+        <button type="button" name="loginBtn" onclick="onSubmit()">Login</button>
+    </form>
+
+
+    <div name="myContainer">
+    </div>
+    <script>
+        let form = document.querySelector("form[name='login']");
+        let btn = document.querySelector("button[name='loginBtn']");
+        btn.disabled = true;
+
+        function checkDisabled() {
+            if (form.userName.value && form.password.value) {
+                btn.disabled = false;
+            } else {
+                btn.disabled = true;
+            }
+        }
+
+        function onSubmit() {
+            btn.textContent = "Processing";
+            setTimeout(() => {
+                btn.textContent = "Done";
+                form.userName.value = "";
+                form.password.value = "";
+            }, 3000);
+            setTimeout(() => {
+                btn.textContent = "Login";
+            }, 4000);
+        }
+    </script>
+</body>
+
+</html> -->
+
+
+
+
+<html>
+
+<head>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10rem;
+            width: 10rem;
+            border: solid 1px;
+        }
+
+        .container__first {
+            height: 2rem;
+            width: 2rem;
+            background-color: red;
+        }
+
+        div.container__first:hover {
+            animation-name: move;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes move {
+            0% {
+                background-color: red;
+                /* transform: rotate(0deg); */
+            }
+
+            25% {
+                background-color: yellow;
+                transform: translateY(10px);
+            }
+
+            50% {
+                background-color: blue;
+                transform: translateY(20px);
+            }
+
+            75% {
+                background-color: green;
+                transform: translateY(30px);
+            }
+
+            100% {
+                background-color: red;
+                transform: translateY(40px);
+            }
+        }
+
+        form[name='loginForm'] {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="container__first">
+        </div>
+    </div>
+    <br>
+    <form name="loginForm">
+        <input type="text" name="userName" oninput="checkDisabled()">
+        <input type="password" name="password" oninput="checkDisabled()">
+        <button type="button" name="loginBtn">Login</button>
+    </form>
+
+    <input type="text" name="userData" oninput="d()">
+    <script>
+        const form = document.querySelector("form[name='loginForm']");
+        const btn = document.querySelector("button[name='loginBtn']");
+        btn.disabled = true;
+
+        function checkDisabled() {
+            if (form.userName.value && form.password.value) {
+                btn.disabled = false;
+            } else {
+                btn.disabled = true;
+            }
+        }
+
+        const v = document.querySelector('input[name="userData"]');
+
+
+        function Multi() {
+            this.value = 0;
+            this.mul = function () {
+                console.log('hi', this);
+            }
+            this.t = () => {
+                console.log(this);
+            }
+        }
+       let b = new Multi();
+       console.log(b.mul())
+
+        function data() {
+        console.log('got value', this);
+       };
+       data();
+    </script>
+
+</body>
+
+</html>
